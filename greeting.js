@@ -1,6 +1,6 @@
 const form = document.querySelector(".js-form"),
   greeting = document.querySelector(".js-greeting"),
-  input = form.querySelector("input");
+  input = form.querySelector(".js-input");
 
 const USER_KEY = "userName"; //key name set
 const SHOW_CL = "showing";

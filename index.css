@@ -6,3 +6,14 @@
 .showing {
   display: block;
 }
+
+input {
+  height: 35px;
+  width: 300px;
+  margin: 10px 0px 10px 0px;
+}
+
+input::placeholder {
+  font-weight: bold;
+  text-align: center;
+}
