@@ -3,10 +3,23 @@ const toDoForm = document.querySelector(".js-toDo"),
   toDoList = document.querySelector(".js-toDoList");
 
 const toDo_LS = "toDoList";
-const toDos = [];
+let toDos = [];
 
-function deleteToDos(event) {}
-function printToDo(text) {
+function deleteToDos(event) {
+  const btn = event.target;
+  const li = btn.parentNode;
+  toDoList.removeChild(li); //parentNode를 통째로 지워야함
+  //console.log(toDos);
+  const cleanToDos = toDos.filter(function (toDo) {
+    //console.log(toDo.id, li.id);
+    return toDo.id !== parseInt(li.id);
+  });
+  //console.log(cleanToDos);
+  toDos = cleanToDos;
+  saveToDos(toDos);
+}
+
+function printToDos(text) {
   const btn = document.createElement("button");
   const li = document.createElement("li");
   const span = document.createElement("span");
@@ -23,10 +36,10 @@ function printToDo(text) {
   saveToDos();
 }
 
-function submintToDo(event) {
+function submitToDo(event) {
   event.preventDefault();
   const currentValue = toDoInput.value;
-  printToDo(toDoInput.value);
+  printToDos(toDoInput.value);
   toDoInput.value = "";
 }
 
@@ -40,14 +53,14 @@ function loadToDos() {
     const parsedToDos = JSON.parse(loadedToDo);
     console.log(parsedToDos);
     parsedToDos.forEach(function (toDo) {
-      printToDo(toDo.text);
+      printToDos(toDo.text);
     });
   }
 }
 
 function init() {
   loadToDos();
-  toDoForm.addEventListener("submit", submintToDo);
+  toDoForm.addEventListener("submit", submitToDo);
 }
 
 init();
