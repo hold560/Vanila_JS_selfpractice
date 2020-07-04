@@ -1,5 +1,5 @@
 const form = document.querySelector(".js-form"),
-  greeting = document.querySelector(".js-greeting"),
+  name = document.querySelector(".js-name"),
   input = form.querySelector(".js-input");
 
 const USER_KEY = "userName"; //key name set
@@ -12,7 +12,7 @@ function saveName(text) {
 function handleSubmit(event) {
   event.preventDefault();
   const currentInput = input.value;
-  printGreeting(currentInput);
+  printName(currentInput);
   saveName(currentInput);
 }
 
@@ -21,10 +21,10 @@ function askName() {
   form.addEventListener("submit", handleSubmit);
 }
 
-function printGreeting(text) {
+function printName(text) {
   form.classList.remove(SHOW_CL);
-  greeting.classList.add(SHOW_CL);
-  greeting.innerText = `Hello ${text}`;
+  name.classList.add(SHOW_CL);
+  name.innerText = `${text}`;
 }
 
 function loadName() {
@@ -32,7 +32,7 @@ function loadName() {
   if (USER_Value === null) {
     askName();
   } else {
-    printGreeting(USER_Value);
+    printName(USER_Value);
   }
 }
 

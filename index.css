@@ -1,21 +1,25 @@
 .form,
-.greeting {
+.name {
   display: none;
 }
 
-.showing {
-  display: block;
-}
-
-input {
-  height: 35px;
-  width: 300px;
-  margin: 10px 0px 10px 0px;
-}
-
-input::placeholder {
+.showing,
+.clockGreeting {
+  display: inline-block;
+  font-size: 38px;
   font-weight: bold;
-  text-align: center;
+}
+
+input[type="text"] {
+  color: white;
+  font-size: 38px;
+  height: 38px;
+  width: 150px;
+  margin: 10px 0px 10px 0px;
+  background: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 3px solid white;
 }
 
 .bg {

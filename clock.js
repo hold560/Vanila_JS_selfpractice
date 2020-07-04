@@ -1,6 +1,7 @@
 const clock = document.querySelector(".js-clock"),
   clockMessage = clock.querySelector(".js-clockMessage"),
-  clockDay = clock.querySelector(".js-clockDay");
+  clockDay = clock.querySelector(".js-clockDay"),
+  clockGreeting = clock.querySelector(".js-clockGreeting");
 
 function getTime() {
   const currentTime = new Date();
@@ -13,6 +14,12 @@ function getTime() {
   clockMessage.innerText = `${hour < 10 ? `0${hour}` : hour}:${
     min < 10 ? `0${min}` : min
   }:${sec < 10 ? `0${sec}` : sec}`;
+  if (hour >= 5 && hour <= 11) {
+    clockGreeting.innerText = `Good Morning,`;
+  } else if (hour >= 12 && hour <= 17) {
+    clockGreeting.innerText = `Good Afternoon,`;
+  } else clockGreeting.innerText = `Good Evening,`;
+  //time range set with hour - morning : 05~11 afternoon : 12-17 evening : 18~04
 }
 
 function init() {
